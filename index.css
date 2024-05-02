@@ -84,6 +84,10 @@ button:hover{
 .header .header-container .menu ul li i{
     font-size: 9px;
 }
+.menu > ul > li:hover {
+    transition: all 0.5s;
+    animation: header 0.2s ease-in;
+}
 
 
 /* CAROUSEL */
