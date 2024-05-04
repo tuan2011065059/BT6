@@ -11,6 +11,7 @@
   
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="./script.js"></script>
 </head>
 
 <body>
@@ -24,28 +25,28 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li>
+                    <li class="active">
                         <a href="#">Home</a>
                         
                         <i class="fa fa-chevron-down"></i>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="#">Pages</a>
                         <i class="fa fa-chevron-down"></i>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="#">Services</a>
                         <i class="fa fa-chevron-down"></i>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="#">Post Layout</a>
                         <i class="fa fa-chevron-down"></i>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="#">Blog</a>
                         <i class="fa fa-chevron-down"></i>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="#">Contact Us</a>
                         <i class="fa fa-chevron-down"></i>
                     </li>
@@ -161,25 +162,25 @@
             <div class="item">
                 <div class="content">
                     <i class="fa fa-smile-beam"></i>
-                    <h1>18 MI</h1>
+                    <h1 id="h1-1">18 MI</h1>
                 </div>
             </div>
             <div class="item">
                 <div class="content">
                     <i class="fa fa-chart-line"></i>
-                    <h1>18 MI</h1>
+                    <h1 id="h1-2">20 MI</h1>
                 </div>
             </div>
             <div class="item">
                 <div class="content">
                     <i class="fa fa-rocket"></i>
-                    <h1>18 MI</h1>
+                    <h1 id="h1-3">30 MI</h1>
                 </div>
             </div>
             <div class="item">
                 <div class="content">
                     <i class="fab fa-apple"></i>
-                    <h1>18 MI</h1>
+                    <h1 id="h1-4">50 MI</h1>
                 </div>
             </div>
         </div>
@@ -236,31 +237,85 @@
             <div class="item item1">
                 <div class="content">
                     <img src="./img/pic1_2.jpg" alt="">
+                    <div class="overplay">
+                        <a href="#">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <div class="txt">
+                            <h3>Software Landing</h3>
+                            <p>By Jhone Doe</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="item item2">
                 <div class="content">
                     <img src="./img/pic2_1.jpg" alt="">
+                    <div class="overplay">
+                        <a href="#">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <div class="txt">
+                            <h3>Software Landing</h3>
+                            <p>By Jhone Doe</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="item item3">
                 <div class="content">
                     <img src="./img/pic3_1.jpg" alt="">
+                    <div class="overplay">
+                        <a href="#">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <div class="txt">
+                            <h3>Software Landing</h3>
+                            <p>By Jhone Doe</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="item item4">
                 <div class="content">
                     <img src="./img/pic4.jpg" alt="">
+                    <div class="overplay">
+                        <a href="#">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <div class="txt">
+                            <h3>Software Landing</h3>
+                            <p>By Jhone Doe</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="item item5">
                 <div class="content">
                     <img src="./img/pic6.jpg" alt="">
+                    <div class="overplay">
+                        <a href="#">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <div class="txt">
+                            <h3>Software Landing</h3>
+                            <p>By Jhone Doe</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="item item6">
                 <div class="content">
                     <img src="./img/pic5.jpg" alt="">
+                    <div class="overplay">
+                        <a href="#">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <div class="txt">
+                            <h3>Software Landing</h3>
+                            <p>By Jhone Doe</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -330,7 +385,7 @@
                     <h2>Subscribe To Our Newsletter</h2>
                 </div>
                 <div class="input">
-                    <input type="text" placeholder="Your Email Address">
+                    <input id="myInout" type="text" placeholder="Your Email Address">
                     <button class="btn1">
                         <i class="fa fa-location-arrow"></i>
                     </button>
@@ -467,8 +522,33 @@
     <button></button>
 </a>
 <script>
-   
+  const elements = document.querySelectorAll(".item h1");
+
+  elements.forEach((element, index) => {
+    const targetNumber = parseInt(element.textContent.slice(0, -2)); // Extract number without "MI"
+    const duration = 3000; // 3 seconds in milliseconds
+
+    animateNumber(element, targetNumber, duration, index * duration / elements.length);
+  });
+
+  function animateNumber(element, targetNumber, duration, delay) {
+    let currentNumber = 0;
+    const increment = targetNumber / (duration / 16); // Calculate increment for smooth animation
+
+    const animate = () => {
+      currentNumber += increment;
+      element.textContent = Math.floor(currentNumber) + " MI";
+
+      if (currentNumber < targetNumber) {
+        setTimeout(animate, 16); // Animate every 16 milliseconds (around 60 FPS)
+      }
+    };
+
+    setTimeout(animate, delay); // Start animation with specified delay based on index
+  }
+  
 </script>
+
 </body>
 
 </html>
