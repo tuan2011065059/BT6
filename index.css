@@ -419,16 +419,21 @@ button:hover{
     width: 90%;
     transition: all 1s;
 }
-.our .container .title .item:hover .content i,
+.our .container .title .item .overplay{
+    opacity: 1;
+    background-color: rgba(39, 76, 89, 0.282);
+}
+
+/* .our .container .title .item:hover .content i,
 .our .container .title .item:hover .content h3,
 .our .container .title .item:hover .content p {
     color: white !important;
     transition: all 1s;
-}
-.our .container .title .item:hover{
+} */
+/* .our .container .title .item:hover{
     background-image: linear-gradient(to right, #f55f8d 0,#f55f8d 50%,#f8ae56 100%);
     
-}
+} */
 .our .container .title .item2{
     margin-left: 70px;
 }
@@ -665,7 +670,7 @@ button:hover{
 }
 /* SUB  */
 .end{
-    position: relative;
+    /* position: relative; */
     margin-top: 50px;
 }
 .end .sub {
@@ -676,9 +681,9 @@ button:hover{
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center center;
-    animation: sub 2s;
+    /* animation: sub 2s; */
 }
-@keyframes sub{
+/* @keyframes sub{
     0%{
         opacity: 0;
        transform: translate3d(0 ,100%, 0); 
@@ -686,30 +691,45 @@ button:hover{
         transform: translate3d(0);
         opacity: 1;
     }
-}
+} */
 
 .end .sub .container{
     display: flex;
     justify-content: space-between;
-    padding: 40px;
+    padding: 40px 50px;
+    position: relative;
+    background-size: contain;
+    background-color: white;
+    border-radius: 10px;
+    background-image: url(https://cybersamar-v2.vercel.app/img/pattern3.png);
+    background-repeat: no-repeat;
+    margin-bottom: 30px;
+    box-shadow: 0 0px 30px 0 rgba(0, 0, 0, 0.1);
     
 }
 .end .sub .container input{
     padding: 15px;
     width: 500px;
     height: 58px;
-    box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.1);
     border: 2px transparent;
     border-radius: 10px;
-    transition: all 1s;
+    transition: all 1s; */
 }
-.end .sub .container input:hover{
+/* .end .sub .container input:hover{
     border: 1px solid red;
     
-}
+} */
 
 .end .sub .container .input .btn1{
     border-radius: 5px;
+}
+/* .footer .container{
+    width: 80%;
+    margin:auto;
+    display: flex;  
+    justify-content: space-between;
+    
 }
 .end .sub .container .input .btn1 i{
     transform: translateX(0px);
@@ -732,7 +752,7 @@ button:hover{
     100%{
         transform: translateX(0px);
     }
-}
+} */
 /* FOOTER  */
 .footer .container{
     width: 80%;
@@ -815,4 +835,19 @@ button:hover{
 }
 .last .container .content .icon a:hover{
     background-color: #f55f8d;
+}
+.kt{
+    position: relative;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: inline-block;
+    
+    
+    color: white;
+}
+.kt .scroll-top button{
+    padding: 20px 25px !important;
+    border-radius: 5px !important;
+    background-color: #f55f8d !important;
 }
